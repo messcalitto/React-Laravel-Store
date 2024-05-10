@@ -1,0 +1,11 @@
+
+
+table  {
+    background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+    padding: 5px;
+}
+
+
+table tr td, th {
+    padding: 5px;
+}
