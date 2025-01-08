@@ -7,9 +7,10 @@ import  Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { DataContext } from '../context/DataContext';
 import './Checkout.css';
+import { config } from '../config';
 
 // Load your publishable key from Stripe
-const stripePromise = loadStripe('pk_test_51H2JdeHi7psR8GxrIbKKzyOvtFjAOvYsRBFJYOMgaeGO0O0rXMR1kzKZ03nppuuW4etPYCxXceIUMhTZnohYpmJ700PxGMamtU');
+const stripePromise = loadStripe(config.stripeKey);
 
 const CheckoutForm = () => {
     const navigate = useNavigate();
