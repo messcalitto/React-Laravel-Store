@@ -11,16 +11,34 @@ use App\Models\Cart;
 class OrderController extends Controller
 {
     
-    public function shipping()
+    public function shipping($call = 'web')
     {
-        return view('home.shipping');
+        $order = Order::where('user_id', auth()->user()->id)
+            ->orderBy('id', 'desc')
+            ->first();
+        
+        if ($call == 'api') {
+            return response()->json([
+                'status' => 'success',
+                'data' => $order
+            ]);
+        }
+        return view('home.shipping', compact('order'));
     }
 
 
 
-    public function place_order(Request $request)
+    public function place_order(Request $request, $call = 'web')
     {
-
+        // Validation
+        $request->validate([
+            'name' => 'required',
+            'email_field' => 'required|email',
+            'phone' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+        ]);
+        
         $order = Order::where('user_id', auth()->user()->id)
             ->whereNull('orders.payment_status')
             ->orderBy('id', 'desc')
@@ -45,6 +63,12 @@ class OrderController extends Controller
             $order->save();
         }
 
+        if ($call == 'api') {
+            return response()->json([
+                'status' => 'success',
+                'data' => $order
+            ]);
+        }
 
         return redirect('/stripe');
     }
@@ -56,7 +80,7 @@ class OrderController extends Controller
     }
 
    
-    public function show_my_orders(Order $order)
+    public function show_my_orders(Order $order, $call = 'web')
     {
         // $orders = Order::where('orders.user_id', auth()->user()->id)
         //     ->join('order_products', 'orders.id', '=', 'order_products.order_id')
@@ -65,6 +89,12 @@ class OrderController extends Controller
 
         $orders = OrderProduct::where('user_id', auth()->user()->id)->get();
 
+        if ($call == 'api') {
+            return response()->json([
+                'status' => 'success',
+                'data' => $orders
+            ]);
+        }
         // return $orders;
 
         return view('home.my_orders', compact('orders'));
@@ -87,4 +117,7 @@ class OrderController extends Controller
     {
         //
     }
+
+
+    
 }

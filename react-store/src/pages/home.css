@@ -1,0 +1,19 @@
+#searchBar form {
+    display:inline-flex;
+    margin:auto;
+
+ }
+
+ #searchBar form button {
+    background:#f7444e;
+    color:white;
+    padding:0 10px;
+    height:42px;
+    margin-left: 5px;
+    font-weight:bold;
+ }
+ 
+ #searchBar {
+    margin: auto;
+    width: fit-content;
+ }   

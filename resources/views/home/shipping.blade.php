@@ -12,32 +12,32 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <x-text-input type="text" class="form-control" id="name" name="name" placeholder="Enter name"/>
+                                <x-text-input type="text" class="form-control" id="name" name="name" placeholder="Enter name" value="{{$order->name}}" /> 
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <x-text-input type="email" class="form-control" id="email" name="email_field" placeholder="Enter email"/>
+                                <x-text-input type="email" class="form-control" id="email" name="email_field" placeholder="Enter email" value="{{$order->email}}" />
                             </div>
                         </div>
                         
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="phone">Phone</label>
-                                <x-text-input type="text" class="form-control" id="phone" name="phone" placeholder="Enter phone"/>
+                                <x-text-input type="text" class="form-control" id="phone" name="phone" placeholder="Enter phone" value="{{$order->phone}}"/>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="address">Address</label>
-                                <x-text-input type="text" class="form-control" id="address" name="address" placeholder="Enter address"/>
+                                <x-text-input type="text" class="form-control" id="address" name="address" placeholder="Enter address" value="{{$order->address}}"/>    
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="city">City</label>
-                                <x-text-input type="text" class="form-control" id="city" name="city" placeholder="Enter city"/>
+                                <x-text-input type="text" class="form-control" id="city" name="city" placeholder="Enter city" value="{{$order->city}}"/>
                             </div>
                         </div>
                     </div>

@@ -10,7 +10,7 @@ use App\Models\Cart;
 class CartController extends Controller
 {
     // 
-    public function add_cart(Request $request, $id) {
+    public function add_cart(Request $request, $id, $call = 'web') {
 
         $product = Product::find($id);
 
@@ -39,26 +39,40 @@ class CartController extends Controller
         $cart->product_id = $product->id;
         $cart->save();
         
+        if ($call == 'api') {
+            return $this->cart_list('api');
+        }
+
         return redirect('/cart');
 
     }
 
-    public function cart_list() {
+    public function cart_list($call = 'web') {
         $user = auth()->user();
         $cart = Cart::where('user_id', $user->id)->get();
+        if ($call == 'api') {
+            return response()->json([
+                'status' => 'success',
+                'data' => $cart
+            ]);
+        }
         return view('home.cart_list', compact('cart'));
     }
 
-    public function cart_update($id, $quantity) {
+    public function cart_update($id, $quantity, $call = 'web') {
         $cart = Cart::find($id);
         $cart->quantity = $quantity;
         $cart->save();
-        return ;
+        return response()->json([
+            'status' => 'success'
+        ]);
     }
 
-    public function cart_remove($id) {
+    public function cart_remove($id, $call = 'web') {
         $cart = Cart::find($id);
         $cart->delete();
-        return ;
+        return response()->json([
+            'status' => 'success'
+        ]);
     }
 }

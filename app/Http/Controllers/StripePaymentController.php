@@ -37,19 +37,22 @@ class StripePaymentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function stripePost(Request $request)
+    public function stripePost(Request $request, $call = 'web')
     {
         $price = Cart::where('user_id', auth()->user()->id)->sum(DB::raw('price * quantity'));
 
-        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-        $paymentRes = Stripe\Charge::create ([
-                "amount" => $price * 100,
-                "currency" => "usd",
-                "source" => $request->stripeToken,
-                "description" => "Test payment" 
-        ]);
-  
-      
+        if ($call == 'web') {
+            Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+            $paymentRes = Stripe\Charge::create ([
+                    "amount" => $price * 100,
+                    "currency" => "usd",
+                    "source" => $request->stripeToken,
+                    "description" => "Test payment" 
+            ]);
+        } 
+        else {
+            $paymentRes = $request;
+        }
         
         if ($paymentRes->paid) {
 
@@ -81,6 +84,13 @@ class StripePaymentController extends Controller
 
             Cart::where('user_id', auth()->user()->id)->delete();
 
+            if ($call == 'api') {
+                return response()->json([
+                    'status' => 'success',
+                    'data' => $order
+                ]);
+            }
+
             Session::flash('success', 'Payment successful!');
         }
         else {
@@ -96,5 +106,25 @@ class StripePaymentController extends Controller
         // Session::flash('success', 'Payment successful!');
           
         return back();
+    }
+
+    public function create_payment_intent() {
+        $price = Cart::where('user_id', auth()->user()->id)->sum(DB::raw('price * quantity'));
+        $shipping = ENV('SHIPPING_COST');
+        $price = $price + $shipping;
+     
+        try {
+            Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+            $paymentIntent = \Stripe\PaymentIntent::create([
+                'amount' => $price * 100,
+                'currency' => 'usd',
+                'payment_method_types' => ['card'],
+            ]);
+        } catch (Error $e) {
+            // http_response_code(500);
+            return response()->json(['error' => $e->getMessage()]);
+        }
+
+        return response()->json(['amount' => $price, 'clientSecret' => $paymentIntent->client_secret]);
     }
 }
