@@ -1,0 +1,21 @@
+.form-control {
+    border: solid 1px #2293f6;
+}
+
+.container .form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 4px;
+}
+
+.error-msg {
+    color: #f00;
+    font-size: 14px;
+    margin-top: 4px;
+    height: 20px;
+}

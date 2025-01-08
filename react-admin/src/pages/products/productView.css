@@ -1,0 +1,50 @@
+.userViewHeaderWrappper,
+.userViewRow {
+    display: flex;
+    margin-bottom: 15px;
+    
+}
+
+.userViewHeaderWrappper {
+    border-bottom: solid 1px #e6e6e6;
+    padding-bottom: 15px;
+    font-weight: bold;
+}
+
+.userViewHeader {
+    flex:1;
+    margin-right: 20px;
+    text-align: right;
+}
+
+.userViewData {
+    flex: 4;
+}
+
+.viewUserButtons {
+    flex:10;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.viewUserButtons button {
+    color: white;
+    text-decoration: none;
+    text-transform: none !important;
+}
+
+.viewUserButtons button a svg,
+.viewUserButtons svg {
+    margin-right: 2px;
+    height: 18px;
+    line-height: 1px;
+    position: absolute;
+    top:6px;
+    left:5px;
+}
+
+.viewUserButtons button {
+    padding: 3px 8px 3px 29px;
+}
+
+

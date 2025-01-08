@@ -1,0 +1,43 @@
+.userViewHeaderWrappper,
+.userViewRow {
+    display: flex;
+    margin-bottom: 5px;
+    
+}
+
+.userViewHeaderWrappper {
+    border-bottom: solid 1px #e6e6e6;
+    padding-bottom: 15px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.userViewHeader {
+    flex:1;
+    margin-right: 20px;
+    text-align: right;
+}
+
+.userViewData {
+    flex: 4;
+}
+
+.viewUserButtons {
+    flex:10;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.viewUserButtons button {
+    margin-left: 7px;
+}
+
+.viewUserButtons button :first-child {
+    color: white;
+    text-decoration: none;
+}
+
+.viewWrapper {
+    padding-bottom: 50px;
+}
+

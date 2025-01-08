@@ -1,0 +1,54 @@
+.productViewHeader{
+    line-height: 40px;
+}
+
+.productViewData {
+    line-height: 40px;
+}
+
+
+.image-item {
+    border:solid 1px #ccc;
+    border-radius: 4px;
+    margin: 10px 5px;
+    padding: 5px;
+    max-width: 200px;
+}
+
+
+.image-item img {
+    margin:auto;
+    display: block;
+    max-height: 100px;
+}
+
+.image-item__btn-wrapper {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+.image-item__btn-wrapper button {
+    flex:1;
+    margin: 10px 2px 0px;    
+    border-radius: 4px;
+    border: solid 1px #aaa;
+    padding: 0px 10px;
+    line-height: 30px;
+}
+
+.upload__image-wrapper button {
+    margin: 10px 2px 0px;
+    border-radius: 4px;
+    border: solid 1px #aaa;
+    line-height: 30px;
+}
+
+.MuiSelect-select {
+    width: 203px !important;
+    padding: 10px !important;
+}
+
+.image-grid {
+    display: flex;
+}
