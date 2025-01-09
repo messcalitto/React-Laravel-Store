@@ -3,7 +3,7 @@ export const config = {
         ? window.location.origin
         : 'http://localhost:8000',
     pageSize: 6,
-    stripeKey: '[your-stripe-key]',
+    stripeKey: 'stripe_key',
     apiVersion: 'v1',
     timeout: 5000,
     defaultLanguage: 'en',
