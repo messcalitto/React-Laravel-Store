@@ -3,7 +3,7 @@ import Topbar from './components/topbar/Topbar';
 import Sidebar from './components/sidebar/Sidebar';
 import './App.css';
 import Home from './pages/home/Home';
-import  { BrowserRouter as Router, Routes, Route, UNSAFE_NavigationContext } from 'react-router-dom';
+import  { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import UserList from './pages/users/UserList';
 
 import ProductList from './pages/products/ProductList';
@@ -34,7 +34,7 @@ function App() {
   return (
     <div className="App">
       <DataProvider>
-      <Router  basename={window.location.pathname} future={{ 
+      <Router  basename={window.location.path} future={{ 
         v7_startTransition: true,
         v7_relativeSplatPath: true 
       }}>

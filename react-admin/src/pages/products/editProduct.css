@@ -13,6 +13,7 @@
     margin: 10px 5px;
     padding: 5px;
     max-width: 200px;
+    float:left;
 }
 
 
@@ -49,6 +50,3 @@
     padding: 10px !important;
 }
 
-.image-grid {
-    display: flex;
-}

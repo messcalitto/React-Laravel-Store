@@ -12,7 +12,7 @@
     height: 100vh;
     margin-top:50px;
     margin-left: 170px;
-    
+    transition: 0.3s;
 }
 
 
@@ -25,4 +25,75 @@
   justify-content: center;
   align-items: center;
   height: 60%;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.topbarMenuIcon {
+  display: none;
+}
+
+
+
+
+@media screen and (max-width: 580px) {
+  .sidebar {
+     left: -170px; 
+  }
+
+  .contentWrapper {
+    margin-left: 0px;
+  }
+
+  .topbarMenuIcon {
+    display: block;
+    font-size: 30px;
+    
+  }
+
+  .topbarMenuIcon:hover {
+    cursor: pointer;
+  }
+
+  .topbarMenuIcon svg {
+    vertical-align: top;
+  }
+
+  .username {
+    display: none;
+  }
+  
+  .userViewHeaderWrappper, .userViewRow {
+    display: block !important;
+    width: 100%;
+    float: left;
+  }
+
+  .userViewHeader {
+    line-height: 40px;
+    float: left;
+    font-weight: 700;
+  }
+
+  .editButtonWrapper {
+    float:left;
+    width: 100%;
+    margin-bottom:200px;
+  }
+  
+  form {
+    float: left;
+  }
+
+  .userListAction {
+    flex-direction: column;
+  }
+
+  .userListAction a {
+    height: 35px;
+    line-height: 35px;
+    margin: auto !important;
+}
 }

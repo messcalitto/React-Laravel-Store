@@ -1,7 +1,5 @@
 import React from 'react';
 import ItemEdit from '../../components/crud/ItemEdit';
-import {getCategories} from '../../components/AxiosFunctions';
-
 
 
 const EditProduct = () => {

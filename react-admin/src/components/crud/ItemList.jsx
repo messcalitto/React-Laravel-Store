@@ -1,5 +1,5 @@
 import React from 'react';
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { DataGrid } from '@mui/x-data-grid';
 
 import * as ItemFunctions from '../../components/AxiosFunctions';
 import HeaderPage from '../../components/HeaderPage';
@@ -24,11 +24,11 @@ const ItemList = ({columns, resource, title, rowHeight=50, showAddButton=true}) 
 
     columns = [
         ...columns,
-        { field: 'action', headerName: 'Action', renderCell: (params) => {
+        { field: 'action', headerName: 'Action',flex:1, renderCell: (params) => {
             return (
               <div className="userListAction">
-                <Link to={`/${resource}/${params.row.id}/edit`}><ModeEditOutlineIcon /></Link>
                 <Link to={`/${resource}/${params.row.id}`}><VisibilityIcon /></Link>
+                <Link to={`/${resource}/${params.row.id}/edit`}><ModeEditOutlineIcon /></Link>
                 <Link><DeleteIcon onClick={() => {handleDelete(params.row.id)}} /></Link>
               </div>
             )
@@ -49,7 +49,7 @@ const ItemList = ({columns, resource, title, rowHeight=50, showAddButton=true}) 
             };
         }
 
-        console.log("useEffect")
+        
         if (!dataContext[resource] || !dataContext[resource].total) {
 
             setLoading(true);
@@ -57,7 +57,6 @@ const ItemList = ({columns, resource, title, rowHeight=50, showAddButton=true}) 
             ItemFunctions.getItemList(resource, dataContext.page, dataContext.pageSize).then(res => {
                 
                 if (res) {
-                    console.log("reload from server")
                     dataContext[resource] = {
                         total: res.total,
                         data: res.data,
@@ -76,7 +75,7 @@ const ItemList = ({columns, resource, title, rowHeight=50, showAddButton=true}) 
 
     const handleDelete = async (id) => {
         
-      const result = await ItemFunctions.handleDelete(id, resource, () => setIsLoading(true))
+      const result = await ItemFunctions.handleDelete(id, resource, () => setLoading(true))
 
       if (result) {
             // detete from dataContext
@@ -84,7 +83,7 @@ const ItemList = ({columns, resource, title, rowHeight=50, showAddButton=true}) 
           dataContext[resource].total = dataContext[resource].total - 1;
       } 
 
-      setIsLoading(false);
+      setLoading(false);
       
   }
 

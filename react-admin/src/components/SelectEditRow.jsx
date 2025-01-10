@@ -14,7 +14,7 @@ const SelectEditRow = ({title, value, options, onChange, width="300px", required
     return (
         <div className="userViewRow">
                 <div className="userViewHeader">
-                    Category
+                    {title}
                 </div>
                 <div className="userViewData">
                     

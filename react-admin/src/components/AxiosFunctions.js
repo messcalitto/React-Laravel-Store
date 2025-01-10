@@ -61,7 +61,7 @@ export const getItemList = async (resource, page=0, pageSize=0) => {
         const res = await axios.get('api/'+resource, { 
             params: {
                 page: page+1,
-                pageSize: pageSize
+                pageSize: pageSize || config.pageSize
             }
         });
         // console.log(res.data)

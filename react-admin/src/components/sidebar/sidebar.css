@@ -1,11 +1,22 @@
 
 .sidebar {
-    position: fixed;
+    position: absolute;
+    left: 0;
     margin-top: 50px;
     border-right: 1px solid #e6e6e6;
     padding-top: 20px;
     height: 100vh;
     background-color: #263544;
+    z-index: 999;
+    transition: 0.3s;
+  }
+
+  .menu-toggle:checked ~ .sidebar {
+    left: 0;
+  }
+  
+  .menu-toggle:checked ~ .contentWrapper {
+    margin-left: 170px;
   }
 
   .sidebarListItem {
@@ -32,7 +43,7 @@
   .sidebarListItem:hover,
   .sidebarListItem:hover a,
   .sidebarListItem .active {
-    background-color: #212d3a;
+    background-color: #465c71;
     border-radius: 5px;
     color:white !important;
   }

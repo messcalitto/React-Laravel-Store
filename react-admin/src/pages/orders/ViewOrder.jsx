@@ -1,8 +1,6 @@
 import React from 'react';
 import ItemView from '../../components/crud/ItemView';
-import { config } from '../../config';
 
-const remoteHost = config.remoteHost;
 
 const ViewOrder = () => {
 

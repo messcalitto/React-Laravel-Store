@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dynamic Menu - My Admin</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .topbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #2c3e50;
+            color: white;
+            padding: 1rem;
+            z-index: 100;
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        .menu-btn {
+            cursor: pointer;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        .menu-btn span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: -250px;
+            top: 60px;
+            width: 250px;
+            height: calc(100vh - 60px);
+            background: #34495e;
+            transition: 0.3s;
+            padding: 20px;
+            box-sizing: border-box;
+            color: white;
+        }
+
+        .menu-toggle:checked ~ .sidebar {
+            left: 0;
+        }
+
+        .content {
+            margin-top: 60px;
+            margin-left: 0;
+            padding: 20px;
+            transition: 0.3s;
+        }
+
+        .menu-toggle:checked ~ .content {
+            margin-left: 250px;
+        }
+
+        /* Menu items styling */
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 10px;
+            border-bottom: 1px solid #465c71;
+        }
+
+        .sidebar ul li:hover {
+            background: #465c71;
+            cursor: pointer;
+        }
+
+        .menu-toggle:checked ~ .sidebar {
+            left: 0; /* Show the sidebar */
+        }
+
+
+        @media (max-width: 768px) {
+            .content {
+                margin-left: 0;
+            }
+            
+            .menu-toggle:checked ~ .content {
+                margin-left: 0;
+                opacity: 0.3;
+            }
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    
+    <div class="topbar">
+        <label for="menu-toggle" class="menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <span style="margin-left: 20px">My Admin Dashboard</span>
+    </div>
+
+    <nav class="sidebar">
+        <ul>
+            <li ><label for="menu-toggle">Dashboard</label></li>
+            <li><label for="menu-toggle">Users</label></li>
+            <li><label for="menu-toggle">Analytics</label></li>
+            <li><label for="menu-toggle">Reports</label></li>
+            <li><label for="menu-toggle">Settings</label></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <h1>Welcome to My Admin</h1>
+        <p>Click the menu button to toggle the sidebar.</p>
+    </main>
+</body>
+</html>

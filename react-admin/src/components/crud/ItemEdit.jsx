@@ -181,7 +181,9 @@ const ItemEdit = ({columns, resource, title, showListButton=true, showViewButton
                 return <TextEditRow key={index} type={column.type} required={column.required}  multiline={column.multiline} title={column.title} value={data[column.field]} onChange={handleChangeForm(column.field)} />
             })}
 
-            <TextFieldRow title="" value={<Button variant="contained" type="submit" color="primary">Update</Button>} />
+            <div className='editButtonWrapper'>
+            <TextFieldRow  title="" value={<Button variant="contained" type="submit" color="primary">Update</Button>} />
+            </div>
             
         </form>            
         </div>

@@ -2,11 +2,11 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 
-const SidebarItem = ({to, icon, title}) => {
+const SidebarItem = ({to, icon, title, onClick=null}) => {
     return (
         <div className="sidebarListItem">
         
-          <NavLink to={to} className='link' activeclassname="active">
+          <NavLink to={to} className='link' onClick={onClick}  activeclassname="active">
             {icon}
             {title}
           </NavLink>
