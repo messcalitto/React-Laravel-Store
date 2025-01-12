@@ -11,6 +11,7 @@ export default function ProtectedRoute ({ children })  {
                           localStorage.getItem('name') !== undefined; // Or your auth check
   
 
+
   useEffect(() => {
     if (!isAuthenticated) {
       localStorage.removeItem('token');
@@ -18,6 +19,11 @@ export default function ProtectedRoute ({ children })  {
       navigate('/login');
     }
   });
+
+
+  if (!isAuthenticated) {
+    return null;
+  }
 
 
   return children;
