@@ -49,7 +49,7 @@ const ProductDetails = () => {
       }
    }, [postRes, dataContext, navigate]);
    
-   const handleOnClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
+   const handleOnClick = async (e: React.MouseEvent<HTMLElement>) => {
       
       if (!isLoggedIn()){
          e.preventDefault();

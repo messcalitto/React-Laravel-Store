@@ -77,7 +77,7 @@ const ProductDetailsButton = ({id}) => {
 const ProductImage = ({image}) => {
     return (
         <div className="img-box">
-            <img src={`uploads/${image[0]}`} alt=""/>
+            <img src={`/uploads/${image[0]}`} alt=""/>
         </div>
     )
 }
