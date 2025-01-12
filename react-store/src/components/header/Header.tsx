@@ -25,14 +25,7 @@ const Header: React.FC = () => {
        }
    };
 
-   useEffect(() => {
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => {
-          document.removeEventListener('mousedown', handleClickOutside);
-      };
-  }, []);
-
-  const handleLogout = () => {
+   const handleLogout = () => {
       setLoading(true);
       Logout().then((res) => {
          dataContext.cartItems = [];
@@ -44,6 +37,15 @@ const Header: React.FC = () => {
          navigate('/');
       });
   }
+
+   useEffect(() => {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+          document.removeEventListener('mousedown', handleClickOutside);
+      };
+   });
+
+ 
 
     return (
 <header className="header_section">

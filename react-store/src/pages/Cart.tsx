@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import Loading from '../components/Loading.tsx';
 import CartItem from '../components/cart/CartItem.tsx';
 import PriceItem from '../components/cart/PriceItem.tsx';
@@ -24,7 +24,7 @@ const Cart = () => {
         image: string
     };
 
-    const setTotalPrices = useCallback(() => {
+    const setTotalPrices = () => {
         let newSubtotal = 0;
         
         cart?.cartItems.forEach((item: CartItem) => {
@@ -33,7 +33,7 @@ const Cart = () => {
         setSubTotal(newSubtotal);
         setTotal(newSubtotal + shipping);
         setTotalTax(newSubtotal + shipping);
-    },[cart]);
+    };
     
 
     const reCalculateTotal = (id: number, quantity: number) => {
@@ -54,6 +54,10 @@ const Cart = () => {
         cart.cartItems = cart.cartItems.filter((item: CartItem) => item.id !== id);
         setTotalPrices();
     };
+
+    useEffect(() => {
+        setTotalPrices();
+    });
 
     if (isLoading) return <Loading />;
 

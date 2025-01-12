@@ -11,7 +11,7 @@ const Paging = ({setPage, current_page, total, addClass}) => {
 
     return (
     <nav className={`d-flex justify-content-end ${addClass}`}>
-    <div className="d-none flex-sm-fill d-sm-flex align-items-sm-center justify-content-sm-end">
+    <div className="flex-sm-fill d-sm-flex align-items-sm-center justify-content-sm-end">
     <div>
         <ul className="pagination">
             
