@@ -1,23 +1,20 @@
 
 .sidebar {
-    position: absolute;
-    left: 0;
     margin-top: 50px;
     border-right: 1px solid #e6e6e6;
     padding-top: 20px;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #263544;
     z-index: 999;
     transition: 0.3s;
   }
 
   .menu-toggle:checked ~ .sidebar {
-    left: 0;
+    margin-left: 0;
+    margin-right: 0;;
   }
   
-  .menu-toggle:checked ~ .contentWrapper {
-    margin-left: 170px;
-  }
+
 
   .sidebarListItem {
     width: 170px;

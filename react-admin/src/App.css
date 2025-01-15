@@ -1,5 +1,6 @@
 .appContainer {
-  display: flex;
+  display: grid;
+  grid-template-columns: 170px auto;
   padding: 0px;
   margin: 0px;
   
@@ -9,9 +10,9 @@
 .contentWrapper {
     flex: 8;
     padding: 20px;
-    height: 100vh;
+    /* height: 100vh; */
     margin-top:50px;
-    margin-left: 170px;
+    /* margin-left: 170px; */
     transition: 0.3s;
 }
 
@@ -39,12 +40,14 @@
 
 
 @media screen and (max-width: 580px) {
+
   .sidebar {
-     left: -170px; 
+     margin-left: -170px;
+     margin-right: 170px;
   }
 
   .contentWrapper {
-    margin-left: 0px;
+    margin-left: -170px;
   }
 
   .topbarMenuIcon {
